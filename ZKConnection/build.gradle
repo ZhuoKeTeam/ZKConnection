@@ -26,4 +26,14 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation deps.kotlin_stdlib8
+
+    api zkteam.zksdk
+
+    api deps.okhttp
+    api deps.okhttp_interceptor
+
+    api deps.retrofit
+    api deps.retrofit_gson
+    api deps.retrofit_rxjava
+
 }
