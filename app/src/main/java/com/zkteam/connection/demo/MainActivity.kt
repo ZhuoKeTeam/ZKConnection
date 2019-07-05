@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.zkteam.connection.ZKConnectionManager
-import com.zkteam.connection.api.ZKApi
 import com.zkteam.connection.bean.ZKBean
 import com.zkteam.connection.bean.ZKTestBean
 import kotlinx.android.synthetic.main.activity_main.*
@@ -18,8 +17,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
+
         bt.setOnClickListener {
-            val zkApi = ZKConnectionManager.instance.getApi(ZKApi::class.java) as ZKApi
+            val zkApi = ZKConnectionManager.instance.getApi(ZKDemoApi::class.java) as ZKDemoApi
             zkApi.requestTest().enqueue(object : Callback<ZKBean<MutableList<ZKTestBean>>> {
                 override fun onFailure(call: Call<ZKBean<MutableList<ZKTestBean>>>, t: Throwable) {
                     tv.text = t.message
